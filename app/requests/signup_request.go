@@ -26,16 +26,7 @@ func ValidateSignupPhoneExist(data interface{}, c *gin.Context) map[string][]str
 		},
 	}
 
-	// 配置初始化
-	opts := govalidator.Options{
-		Data:          data,
-		Rules:         rules,
-		TagIdentifier: "valid", // 模型中的 struct 标签标识
-		Messages:      messages,
-	}
-
-	// 开始验证
-	return govalidator.New(opts).ValidateStruct()
+	return validate(data, rules, messages)
 }
 
 // email 验证
@@ -52,12 +43,6 @@ func ValidateSignupEmailExist(data interface{}, c *gin.Context) map[string][]str
 
 	// 自定义验证出错的提示
 	messages := govalidator.MapData{
-		// "email": []string{
-		// 	"required:邮箱为必填项，参数名称 email",
-		// 	"min:Email 长度大于4",
-		// 	"max:Email 长度小于30",
-		// 	"email:Email 格式不正确，请提供有效的邮箱地址",
-		// },
 		"email": []string{
 			"required:Email 为必填项",
 			"min:Email 长度需大于 4",
@@ -66,14 +51,5 @@ func ValidateSignupEmailExist(data interface{}, c *gin.Context) map[string][]str
 		},
 	}
 
-	// 配置初始化
-	opts := govalidator.Options{
-		Data:          data,
-		Rules:         rules,
-		TagIdentifier: "valid", // 模型中的 struct 标签标识
-		Messages:      messages,
-	}
-
-	// 开始验证
-	return govalidator.New(opts).ValidateStruct()
+	return validate(data, rules, messages)
 }
