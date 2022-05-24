@@ -19,7 +19,7 @@ type SMS struct {
 	Driver Driver
 }
 
-// once 单例模式
+// once 单实例
 var once sync.Once
 
 // internalSMS 内部使用的 SMS 对象
@@ -29,7 +29,8 @@ var internalSMS *SMS
 func NewSMS() *SMS {
 	once.Do(func() {
 		internalSMS = &SMS{
-			Driver: &Aliyun{},
+			// Driver: &Aliyun{},
+			Driver: &Tencen{},
 		}
 	})
 
@@ -37,5 +38,5 @@ func NewSMS() *SMS {
 }
 
 func (sms *SMS) Send(phone string, message Message) bool {
-	return sms.Driver.Send(phone, message, config.GetStringMapString("sms.aliyun"))
+	return sms.Driver.Send(phone, message, config.GetStringMapString("sms.tencent"))
 }
