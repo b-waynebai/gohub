@@ -29,7 +29,7 @@ var once sync.Once
 var internalMailer *Mailer
 
 // NewMailer 单例模式获取
-func NewEmail() *Mailer {
+func NewMailer() *Mailer {
 	once.Do(func() {
 		internalMailer = &Mailer{
 			Driver: &SMTP{},
