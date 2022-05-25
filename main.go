@@ -44,10 +44,7 @@ func main() {
 	// 初始化路由绑定
 	bootstrap.SetupRoute(router)
 
-	// sms.NewSMS().Send("18335845663", sms.Message{
-	// 	Template: config.GetString("sms.tencent.template_code"),
-	// 	Data:     map[string]string{"code": "123456"},
-	// })
+	// verifycode.NewVerifyCode().SendSMS("18335845663")
 
 	// 运行服务
 	err := router.Run(":" + config.Get("app.port"))
