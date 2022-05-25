@@ -3,11 +3,14 @@ module gohub
 go 1.17
 
 require (
+	github.com/KenmyZhang/aliyun-communicate v0.0.0-20180308134849-7997edc57454
 	github.com/gin-gonic/gin v1.7.7
 	github.com/go-redis/redis/v8 v8.11.5
 	github.com/mojocn/base64Captcha v1.3.5
 	github.com/spf13/cast v1.5.0
 	github.com/spf13/viper v1.11.0
+	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common v1.0.405
+	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/sms v1.0.405
 	github.com/thedevsaddam/govalidator v1.9.10
 	go.uber.org/zap v1.21.0
 	gopkg.in/natefinch/lumberjack.v2 v2.0.0
@@ -17,7 +20,6 @@ require (
 )
 
 require (
-	github.com/KenmyZhang/aliyun-communicate v0.0.0-20180308134849-7997edc57454 // indirect
 	github.com/cespare/xxhash/v2 v2.1.2 // indirect
 	github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f // indirect
 	github.com/fsnotify/fsnotify v1.5.1 // indirect
@@ -47,9 +49,6 @@ require (
 	github.com/spf13/jwalterweatherman v1.1.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/subosito/gotenv v1.2.0 // indirect
-	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common v1.0.405 // indirect
-	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/ic v1.0.405 // indirect
-	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/sms v1.0.405 // indirect
 	github.com/ugorji/go/codec v1.1.7 // indirect
 	go.uber.org/atomic v1.7.0 // indirect
 	go.uber.org/multierr v1.6.0 // indirect
