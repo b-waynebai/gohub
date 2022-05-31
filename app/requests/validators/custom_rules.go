@@ -19,7 +19,7 @@ func init() {
 	// not_exists:users,email 检查数据库表里是否存在同一条信息
 	// not_exists:users,email,32 排除用户掉 id 为 32 的用户
 	govalidator.AddCustomRule("not_exists", func(field, rule, message string, value interface{}) error {
-		rng := strings.Split(strings.TrimPrefix(rule, "not_exists"), ",")
+		rng := strings.Split(strings.TrimPrefix(rule, "not_exists:"), ",")
 
 		// 第一个参数，表名称，如 users
 		tableName := rng[0]
