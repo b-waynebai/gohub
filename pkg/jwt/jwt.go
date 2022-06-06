@@ -82,7 +82,7 @@ func (jwt *JWT) ParserToken(c *gin.Context) (*JWTCustomClaims, error) {
 	}
 
 	// 3 将 token 中的 claims 信息解析出来和 JWTCustomClaims 数据结构进行校验
-	if claims, ok := token.Claims.(*JWTCustomClaims); !ok && token.Valid {
+	if claims, ok := token.Claims.(*JWTCustomClaims); ok && token.Valid {
 		return claims, nil
 	}
 
@@ -161,10 +161,10 @@ func (jwt *JWT) expireAtTime() int64 {
 	timenow := app.TimenowInTimezone()
 
 	var expireTime int64
-	if config.GetBool("app.dbug") {
+	if config.GetBool("app.debug") {
 		expireTime = config.GetInt64("jwt.debug_expire_time")
 	} else {
-		expireTime = config.GetInt64("jwt.exprie")
+		expireTime = config.GetInt64("jwt.expire_time")
 	}
 
 	expire := time.Duration(expireTime) * time.Minute
